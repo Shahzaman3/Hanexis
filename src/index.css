@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*git remote add upstream https://github.com/Shahzaman3/Hanexis.git
+git fetch upstream
+git merge upstream/main
+
 */
 
 @layer base {
@@ -259,4 +261,8 @@ All colors MUST be HSL.
   ::-webkit-scrollbar-thumb:hover {
     background: hsl(230 100% 60%);
   }
+}
+
+.float-tilt {
+  transform: translateY(0) rotate(76deg);
 }
