@@ -60,7 +60,7 @@ const Footer = () => {
   return (
     <>
       {/* Final CTA Section */}
-      <section className="py-32 gradient-primary relative overflow-hidden">
+      <section className="py-32 gradient-hero relative overflow-hidden">
         <div className="absolute top-10 left-10 footer-float">
           <ShoppingBag className="w-16 h-16 text-white/20 animate-float" />
         </div>
@@ -72,48 +72,31 @@ const Footer = () => {
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h2 className="text-5xl lg:text-8xl font-bold text-white mb-10 leading-tight tracking-tight">
-            Ready to{' '}
-            <span className="bg-white text-primary px-8 py-4 rounded-3xl inline-block transform -rotate-2 shadow-2xl glow-strong">
-              transform
-            </span>{' '}
-            your<br />
-            e-commerce empire?
-          </h2>
           
-          <p className="text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Join over 10,000 successful merchants who trust Henexis to automate their pricing, optimize their operations, and <span className="font-bold">scale their businesses to unprecedented heights.</span>
-          </p>
+          <h1 className="hero-title h-auto hidden md:block text-center md:text-[44px] lg:text-[64px] xl:text-[74px] font-bold leading-tight tracking-tight">
+            <div className="hidden md:block absolute top-[-65px] left-[-40px] rotate-[110deg] z-30">
+              <img
+                src="/assets/img2.png"
+                className="w-20 sm:w-20 lg:w-32 md:w-28 h-auto"
+                alt="Floating Left"
+              />
+            </div>
+              <span className="text-foreground">Start </span>
+            <span className="gradient-primary bg-clip-text text-transparent glow-text">
+              selling smarter{" "}
+            </span>
+            <span className="text-foreground">on Shopify Today</span>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            <button className="bg-white text-primary px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-card-hover transition-smooth transform hover:-translate-y-1 shadow-2xl">
-              Start Free Trial
-            </button>
-            <button className="border-2 border-white text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white hover:text-primary transition-smooth">
-              Schedule Demo
-            </button>
-          </div>
-          
-          <div className="flex items-center justify-center space-x-8 text-white/70 text-sm">
-            <div className="flex items-center space-x-2">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span>14-day free trial</span>
+            <span className="text-foreground flex items-center space-x-4">
+              <div className="hidden md:block absolute bottom-[-60px] right-[-40px] rotate-[320deg] z-30">
+              <img
+                src="/assets/img2.png"
+                className="w-20 sm:w-20 lg:w-32 md:w-24 h-auto"
+                alt="Floating Right"
+              />
             </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span>No setup fees</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              <span>Cancel anytime</span>
-            </div>
-          </div>
+            </span>
+          </h1>
         </div>
       </section>
 

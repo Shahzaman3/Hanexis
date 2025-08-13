@@ -79,19 +79,16 @@ const FAQ = () => {
   return (
     <section id="faq" ref={sectionRef} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 mb-6">
               <span className="text-sm font-medium text-primary">FAQ</span>
             </div>
             <h2 className="faq-title text-4xl lg:text-5xl font-bold mb-6">
-              Frequently Asked{' '}
-              <span className="gradient-primary bg-clip-text text-transparent">
-                Questions
-              </span>
+              Questions ? Let's Clear Up Things
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Everything you need to know about Henexis and how it can transform your e-commerce business.
+              Here are some quick answersto help you feel confident about using Hanexis
             </p>
           </div>
 

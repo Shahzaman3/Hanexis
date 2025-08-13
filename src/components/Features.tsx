@@ -99,28 +99,19 @@ const Features = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-32 gradient-hero relative overflow-hidden">
-      {/* Premium Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-gradient-to-r from-primary/15 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-0 w-72 h-72 bg-gradient-to-l from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
-      
+    <section ref={sectionRef} className="py-10 gradient-hero relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-6 py-3 mb-8 shadow-elegant">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-primary">Platform Features</span>
-          </div>
           <h2 className="features-title text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
-            Powerful Tools for{' '}
-            <span className="gradient-primary bg-clip-text text-transparent glow-text">Modern Commerce</span>
+            <span className="gradient-primary bg-clip-text text-transparent glow-text">Features</span>
+            {' '} You'll Use Everyday
           </h2>
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
             Everything you need to automate, optimize, and scale your e-commerce business with <span className="font-semibold text-foreground">absolute confidence and precision.</span>
           </p>
         </div>
 
-        <div className="features-grid grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-8xl mx-auto">
+        <div className="features-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-8xl mx-auto">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             
