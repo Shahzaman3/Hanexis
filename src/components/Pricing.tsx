@@ -1,287 +1,106 @@
-import { useState, useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Button } from "@/components/ui/button";
-import { Check, Star } from "lucide-react";
+import React from "react";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Pricing = () => {
-  const [isYearly, setIsYearly] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const toggleRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Title animation
-      gsap.fromTo(
-        ".pricing-title",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Toggle animation
-      gsap.fromTo(
-        ".pricing-toggle",
-        { scale: 0, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 70%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-
-      // Pricing cards animation
-      gsap.fromTo(
-        ".pricing-card",
-        { y: 100, opacity: 0, scale: 0.9 },
-        {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          ease: "power3.out",
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: ".pricing-grid",
-            start: "top 75%",
-            toggleActions: "play none none reverse",
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const handleToggle = () => {
-    setIsYearly(!isYearly);
-
-    // GSAP animation for price changes
-    gsap.to(".price-amount", {
-      scale: 0.8,
-      duration: 0.2,
-      ease: "power2.in",
-      onComplete: () => {
-        gsap.to(".price-amount", {
-          scale: 1,
-          duration: 0.3,
-          ease: "back.out(1.7)",
-        });
-      },
-    });
-  };
-
-  const plans = [
-    {
-      name: "Starter Plan",
-      price: isYearly ? "0" : "0",
-      period: isYearly ? "year" : "month",
-      popular: false,
-      badge: "Includes:",
-      features: [
-        "Install & use Hanexis plugin",
-        "1 Client Type (e.g. Retailer)",
-        "Upto 50 Products",
-        "Quick Quotation Generator",
-        "Basic Stock Management",
-        "Email Support",
-      ],
-    },
-    {
-      name: "Business Plan",
-      price: isYearly ? "897" : "999",
-      period: isYearly ? "year" : "month",
-      popular: true,
-      badge: "Includes",
-      features: [
-        "5 Client Types",
-        "500 Products",
-        "Region-based Stock",
-        "Smart Pricing Rules",
-        "GST/VAT Quotes",
-        "Order Tracking",
-        "Priority Support",
-      ],
-    },
-    {
-      name: "Enterprise Plan",
-      price: isYearly ? "2,397" : "4999",
-      period: isYearly ? "year" : "month",
-      popular: false,
-      badge: "Includes",
-      features: [
-        "Unlimited Clients & Poducts",
-        "Role-based Access & Dashboards",
-        "Bulk Uploads(CSV, Excel)",
-        "Custom Integrations & API Access",
-        "Dedicated Account Manager",
-        "Phone & Email Support",
-      ],
-    },
-  ];
-
+const Pricing: React.FC = () => {
   return (
-    <section
-      id="pricing"
-      ref={sectionRef}
-      className="py-10 gradient-mesh-1 relative overflow-hidden"
-    >
-      {/* Premium Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/5"></div>
-      <div className="absolute top-1/4 right-0 w-80 h-80 bg-gradient-to-l from-primary/15 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-gradient-to-r from-purple-500/15 to-transparent rounded-full blur-3xl"></div>
+    <section className="w-full py-12 px-4 bg-white flex flex-col items-center">
+      {/* Top Button */}
+      <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-4 py-2 rounded-full text-sm font-semibold mb-4 hover:shadow-lg transition">
+        Try for Free →
+      </button>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-3 glass-morphism rounded-full px-6 py-3 mb-8 shadow-elegant bg-[#FDDE51]">
-            <div className="w-2 h-2 bg-black rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold">
-              Try Hanexis For Free
-            </span>
-          </div>
-          <h2 className="pricing-title text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
-            Flexible Business Plans For Every Bussiness Size
-          </h2>
-          <p className="text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-light">
-            Start free, scale as you grow - whether you're a solo seller or a alarge B2B distributor
+      {/* Heading */}
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
+        Flexible Plans for Every Business Size
+      </h2>
+      <p className="text-gray-600 text-center max-w-xl mb-6 text-sm md:text-base">
+        Start free, scale as you grow — whether you’re a solo seller or a large
+        B2B distributor.
+      </p>
+
+      {/* Toggle */}
+      <div className="flex items-center bg-gray-100 rounded-full p-1 mb-10">
+        <button className="px-4 py-1 text-sm md:text-base font-semibold bg-white rounded-full shadow">
+          Monthly
+        </button>
+        <button className="px-4 py-1 text-sm md:text-base text-gray-500">
+          Yearly
+        </button>
+      </div>
+
+      {/* Pricing Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full justify-items-center md:justify-items-stretch">
+        {/* Starter Plan */}
+        <div className="border border-gray-200 rounded-2xl bg-gradient-to-b from-blue-50 to-white p-6 flex flex-col w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full">
+          <h3 className="font-semibold text-lg md:text-xl mb-2 sm:text-lg">Starter Plan</h3>
+          <p className="text-3xl md:text-4xl font-bold mb-1 sm:text-4xl">₹ 499</p>
+          <p className="text-sm md:text-base text-gray-500 mb-4">
+            /Mo + ₹1,999 setup
           </p>
-
-          {/* Premium Toggle */}
-          <div
-            ref={toggleRef}
-            className="pricing-toggle inline-flex items-center space-x-2 glass-morphism p-3 rounded-2xl shadow-elegant border border-white/20"
-          >
-            <button
-              onClick={handleToggle}
-              className={`px-8 py-4 rounded-xl transition-elastic font-bold text-lg ${
-                !isYearly
-                  ? "gradient-primary text-white shadow-elegant glow-soft"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={handleToggle}
-              className={`px-8 py-4 rounded-xl transition-elastic font-bold text-lg relative ${
-                isYearly
-                  ? "gradient-primary text-white shadow-elegant glow-soft"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Yearly
-              {isYearly && (
-                <span className="ml-3 text-sm bg-green-500 text-white px-3 py-1 rounded-full animate-pulse-soft">
-                  Save 20%
-                </span>
-              )}
-            </button>
-          </div>
+          <ul className="list-disc list-inside text-sm sm:text-lg md:text-base text-gray-600 mb-6 space-y-2">
+            <li>300 products</li>
+            <li>5 pricing rules</li>
+            <li>20 Excel uploads</li>
+            <li>Gold & Silver rates</li>
+            <li>Chat + Email support</li>
+          </ul>
+          <button className="px-6 py-2 border border-gray-300 rounded-full hover:bg-gray-100">
+            Start Now
+          </button>
         </div>
 
-        <div className="pricing-grid grid lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {plans.map((plan, index) => (
-            <div key={index} className="relative flex flex-col items-center">
-              {/* Popular badge outside */}
-              {plan.popular && (
-                <div className="absolute -top-10 z-10">
-                  <div className="gradient-primary text-white px-8 py-3 rounded-full text-lg font-bold flex items-center shadow-premium glow-soft">
-                    <Star className="w-5 h-5 mr-2 fill-current animate-pulse-soft" />
-                    Most Popular
-                  </div>
-                </div>
-              )}
-
-              {/* Equal height card */}
-              <div
-                className={`pricing-card relative gradient-card rounded-3xl p-10 shadow-premium hover:shadow-card-hover transition-elastic border border-white/20 backdrop-blur-2xl overflow-hidden h-full flex flex-col w-full ${
-                  plan.popular
-                    ? "ring-4 ring-primary/50 glow-strong scale-110"
-                    : ""
-                }`}
-              >
-                {/* Content section */}
-                <div className="flex-1">
-                  <div className="text-center mb-10 relative">
-                    <div className="mb-6">
-                      <h3 className="text-3xl font-bold mb-3">{plan.name}</h3>
-                      <p className="text-lg text-muted-foreground">
-                        {plan.badge}
-                      </p>
-                    </div>
-                    <div className="mb-8">
-                      <span className="text-6xl font-bold price-amount gradient-primary bg-clip-text text-transparent glow-text">
-                        ₹{plan.price}
-                      </span>
-                      <span className="text-muted-foreground ml-3 text-2xl">
-                        / {plan.period}
-                      </span>
-                    </div>
-                    {isYearly && (
-                      <div className="inline-flex items-center space-x-2 bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-bold mb-6 shadow-elegant">
-                        <svg
-                          className="w-4 h-4"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <span>Save 20%</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <ul className="space-y-6 mb-12 relative">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-center text-lg"
-                      >
-                        <div className="w-6 h-6 gradient-primary rounded-full flex items-center justify-center mr-4 shadow-elegant glow-soft">
-                          <Check className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-foreground font-medium">
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Button section - always at bottom & same style */}
-                <Button className="w-full py-6 text-xl font-bold transition-elastic rounded-2xl shadow-elegant gradient-primary hover:shadow-card-hover text-white glow-soft">
-                  {index === 0 && "Start Free Trial"}
-                  {index === 1 && "Get Professional"}
-                  {index === 2 && "Contact Sales"}
-                </Button>
-              </div>
-            </div>
-          ))}
+        {/* Advanced Plan */}
+        <div className="border border-blue-400 rounded-2xl bg-gradient-to-b from-blue-400 to-blue-500 text-white p-6 flex flex-col shadow-lg scale-105 w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full">
+          <span className="bg-white text-blue-600 text-xs font-semibold px-3 py-1 rounded-full mb-4 self-center">
+            Most Popular
+          </span>
+          <h3 className="font-semibold text-lg md:text-xl mb-2">Advanced Plan</h3>
+          <p className="text-3xl md:text-4xl font-bold mb-1">₹ 999</p>
+          <p className="text-sm md:text-base mb-4">/Mo + ₹1,999 setup</p>
+          <ul className="list-disc list-inside text-sm md:text-base mb-6 space-y-2">
+            <li>1,000 products</li>
+            <li>10 pricing rules</li>
+            <li>40 Excel uploads</li>
+            <li>Gold, Silver, Platinum rates</li>
+            <li>Priority support</li>
+          </ul>
+          <button className="px-6 py-2 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100">
+            Get Advanced
+          </button>
         </div>
+
+        {/* Pro Plan */}
+        <div className="border border-gray-200 rounded-2xl bg-gradient-to-b from-blue-50 to-white p-6 flex flex-col w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full">
+          <h3 className="font-semibold text-lg md:text-xl mb-2">Pro Plan</h3>
+          <p className="text-3xl md:text-4xl font-bold mb-1">₹ 4999</p>
+          <p className="text-sm md:text-base text-gray-500 mb-4">
+            /Mo + ₹1,999 setup
+          </p>
+          <ul className="list-disc list-inside text-sm md:text-base text-gray-600 mb-6 space-y-2">
+            <li>5,000 products</li>
+            <li>20 smart rules</li>
+            <li>Bulk & conditional uploads</li>
+            <li>API auto-sync rates</li>
+            <li>WhatsApp support</li>
+          </ul>
+          <button className="px-6 py-2 border border-gray-300 rounded-full hover:bg-gray-100">
+            Go Pro
+          </button>
+        </div>
+      </div>
+
+      {/* Bottom Buttons */}
+      <div className="flex flex-col md:flex-row gap-4 mt-10">
+        <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold hover:shadow-lg">
+          Start Free →
+        </button>
+        <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold hover:shadow-lg">
+          Request Pricing →
+        </button>
       </div>
     </section>
   );
 };
 
 export default Pricing;
+
+

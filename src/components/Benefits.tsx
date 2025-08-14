@@ -12,7 +12,7 @@ const Benefits = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-gray-900">
           Why Businesses Love{" "}
           <span className="gradient-primary bg-clip-text text-transparent glow-text">
-            Hanexis
+            Autoprice Pro
           </span>
         </h2>
         <p className="text-gray-700 max-w-3xl mx-auto text-base sm:text-lg md:text-xl leading-relaxed flex items-center justify-center gap-2">

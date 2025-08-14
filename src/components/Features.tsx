@@ -1,7 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { BarChart3, Users, TrendingUp, ExternalLink } from 'lucide-react';
+
+// Import your images
+import img5 from '/assets/img5.png';
+import img6 from '/assets/img6.png';
+import img7 from '/assets/img7.png';
+import img8 from '/assets/img8.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +16,8 @@ const Features = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Title animation
-      gsap.fromTo('.features-title',
+      gsap.fromTo(
+        '.features-title',
         { y: 50, opacity: 0 },
         {
           y: 0,
@@ -21,13 +27,14 @@ const Features = () => {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: 'top 80%',
-            toggleActions: 'play none none reverse'
-          }
+            toggleActions: 'play none none reverse',
+          },
         }
       );
 
       // Feature cards animation
-      gsap.fromTo('.feature-card',
+      gsap.fromTo(
+        '.feature-card',
         { y: 80, opacity: 0, scale: 0.9 },
         {
           y: 0,
@@ -39,33 +46,10 @@ const Features = () => {
           scrollTrigger: {
             trigger: '.features-grid',
             start: 'top 75%',
-            toggleActions: 'play none none reverse'
-          }
+            toggleActions: 'play none none reverse',
+          },
         }
       );
-
-      // Icon hover animations
-      const icons = document.querySelectorAll('.feature-icon');
-      icons.forEach((icon) => {
-        icon.addEventListener('mouseenter', () => {
-          gsap.to(icon, { 
-            scale: 1.2, 
-            rotation: 10, 
-            duration: 0.3, 
-            ease: 'back.out(1.7)' 
-          });
-        });
-        
-        icon.addEventListener('mouseleave', () => {
-          gsap.to(icon, { 
-            scale: 1, 
-            rotation: 0, 
-            duration: 0.3, 
-            ease: 'power2.out' 
-          });
-        });
-      });
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -73,80 +57,80 @@ const Features = () => {
 
   const features = [
     {
-      icon: BarChart3,
+      img: img5,
       title: 'Seller Dashboard',
       description: 'Client management, stock control, quotation generation.',
-      color: 'from-blue-500 to-blue-600'
     },
     {
-      icon: Users,
+      img: img6,
       title: 'Buyer Dashboard',
-      description: 'Personalized prices, easy ordering, invoive tracking',
-      color: 'from-purple-500 to-purple-600'
+      description: 'Personalized prices, easy ordering, invoice tracking',
     },
     {
-      icon: TrendingUp,
+      img: img7,
       title: 'Analytics',
       description: 'Top-selling customers, client spend, sales trends.',
-      color: 'from-green-500 to-green-600'
     },
     {
-      icon: ExternalLink,
+      img: img8,
       title: 'Extras',
       description: 'Credit Options, shipping rules, role-based dashboards.',
-      color: 'from-orange-500 to-orange-600'
-    }
+    },
   ];
 
   return (
-    <section ref={sectionRef} className="py-10 gradient-hero relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-10 gradient-hero relative overflow-hidden"
+    >
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="features-title text-5xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
-            <span className="gradient-primary bg-clip-text text-transparent glow-text">Features</span>
-            {' '} You'll Use Everyday
+            <span className="gradient-primary bg-clip-text text-transparent glow-text">
+              Features
+            </span>{' '}
+            You'll Use Everyday
           </h2>
           <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light">
-            Everything you need to automate, optimize, and scale your e-commerce business with <span className="font-semibold text-foreground">absolute confidence and precision.</span>
+            Everything you need to automate, optimize, and scale your e-commerce
+            business with{' '}
+            <span className="font-semibold text-foreground">
+              absolute confidence and precision.
+            </span>
           </p>
         </div>
 
         <div className="features-grid grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-8xl mx-auto">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon;
-            
-            return (
-              <div
-                key={index}
-                className="feature-card gradient-card rounded-3xl p-10 text-left shadow-premium hover:shadow-card-hover transition-elastic group cursor-pointer border border-white/20 relative overflow-hidden backdrop-blur-2xl"
-              >
-                {/* Premium Background Effects */}
-                <div className={`absolute -top-20 -right-20 w-32 h-32 bg-gradient-to-br ${feature.color} rounded-full opacity-10 group-hover:opacity-30 transition-smooth blur-2xl`}></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-smooth"></div>
-                
-                <div className="relative mb-8">
-                  <div className={`feature-icon w-18 h-18 bg-gradient-to-br ${feature.color} rounded-3xl flex items-center justify-center mb-6 group-hover:glow-strong transition-elastic group-hover:scale-110 shadow-elegant`}>
-                    <IconComponent className="w-9 h-9 text-white" />
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold mb-6 text-foreground group-hover:text-primary transition-smooth">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
-                  {feature.description}
-                </p>
-
-                
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="feature-card rounded-3xl p-10 text-center shadow-premium hover:shadow-card-hover transition-all duration-300 group cursor-pointer border-2 border-blue-400 relative overflow-hidden backdrop-blur-2xl bg-gradient-to-b from-white to-blue-400"
+            >
+              {/* Image */}
+              <div className="relative mb-8">
+                <img
+                  src={feature.img}
+                  alt={feature.title}
+                  className="w-28 h-28 object-contain mx-auto group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
-            );
-          })}
-        </div>
 
+              {/* Heading */}
+              <h3 className="text-2xl font-bold mb-6 text-foreground group-hover:text-blue-600 transition-smooth">
+                {feature.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default Features;
+
