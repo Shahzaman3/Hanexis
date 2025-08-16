@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <span className="text-2xl font-bold text-black">Henexis</span>
+            <img src="/assets/logo.svg" alt="" />
           </div>
 
           {/* Desktop Menu with glassy rounded div */}

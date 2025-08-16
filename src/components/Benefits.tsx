@@ -22,7 +22,8 @@ const Benefits = () => {
           stagger: 0.05,
           scrollTrigger: {
             trigger: ".benefits-heading",
-            start: "top 80%", // 👈 ab reverse hoga
+            start: "top 70%", // 👈 ab reverse hoga
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -42,6 +43,7 @@ const Benefits = () => {
           scrollTrigger: {
             trigger: ".benefits-para",
             start: "top 85%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -60,6 +62,7 @@ const Benefits = () => {
           scrollTrigger: {
             trigger: ".benefit-box",
             start: "top 60%",
+            toggleActions: "play none none reverse",
           },
         }
       );

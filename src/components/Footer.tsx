@@ -46,19 +46,6 @@ const Footer = () => {
     return () => ctx.revert();
   }, []);
 
-  const quickLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "Features", href: "#features" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
-  ];
-
-  const contactInfo = [
-    "support@hanexis.com",
-    "24/7 support via chat",
-    "+1 (555) 123-4567",
-  ];
-
   return (
     <>
       {/* Final CTA Section */}
@@ -119,11 +106,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Brand */}
             <div>
-              <h2 className="text-2xl font-bold">
-                <span className="text-black">Han</span>
-                <span className="text-orange-500">e</span>
-                <span className="text-black">xis</span>
-              </h2>
+              <img src="/assets/logo.svg" alt="" />
               <p className="mt-4 text-gray-600 text-sm leading-relaxed max-w-xs">
                 The AI-powered business brain that transforms your Tally data
                 into actionable insights. Smart, simple, and designed for Indian
