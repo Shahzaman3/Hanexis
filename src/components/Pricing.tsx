@@ -3,9 +3,12 @@ import React from "react";
 const Pricing: React.FC = () => {
   return (
     <section className="w-full py-12 px-4 bg-white flex flex-col items-center">
-      {/* Top Button */}
-      <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-4 py-2 rounded-full text-sm font-semibold mb-4 hover:shadow-lg transition">
-        Try for Free →
+      <button
+        className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold 
+    shadow-[8px_8px_16px_#d1b35f,-8px_-8px_16px_#fff5cc] 
+    transition-all duration-300 hover:shadow-[inset_8px_8px_16px_#d1b35f,inset_-8px_-8px_16px_#fff5cc]"
+      >
+        Try For Free →
       </button>
 
       {/* Heading */}
@@ -30,9 +33,16 @@ const Pricing: React.FC = () => {
       {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full justify-items-center md:justify-items-stretch">
         {/* Starter Plan */}
-        <div className="border border-gray-200 rounded-2xl bg-gradient-to-b from-blue-50 to-white p-6 flex flex-col w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full">
-          <h3 className="font-semibold text-lg md:text-xl mb-2 sm:text-lg">Starter Plan</h3>
-          <p className="text-3xl md:text-4xl font-bold mb-1 sm:text-4xl">₹ 499</p>
+        <div
+          className="border border-gray-200 rounded-2xl bg-gradient-to-b from-blue-50 to-white p-6 flex flex-col w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full 
+        transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+        >
+          <h3 className="font-semibold text-lg md:text-xl mb-2 sm:text-lg">
+            Starter Plan
+          </h3>
+          <p className="text-3xl md:text-4xl font-bold mb-1 sm:text-4xl">
+            ₹ 499
+          </p>
           <p className="text-sm md:text-base text-gray-500 mb-4">
             /Mo + ₹1,999 setup
           </p>
@@ -49,11 +59,16 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Advanced Plan */}
-        <div className="border border-blue-400 rounded-2xl bg-gradient-to-b from-blue-400 to-blue-500 text-white p-6 flex flex-col shadow-lg scale-105 w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full">
+        <div
+          className="border border-blue-400 rounded-2xl bg-gradient-to-b from-blue-400 to-blue-500 text-white p-6 flex flex-col shadow-lg scale-105 w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full 
+        transition-transform duration-300 hover:scale-110 hover:shadow-2xl"
+        >
           <span className="bg-white text-blue-600 text-xs font-semibold px-3 py-1 rounded-full mb-4 self-center">
             Most Popular
           </span>
-          <h3 className="font-semibold text-lg md:text-xl mb-2">Advanced Plan</h3>
+          <h3 className="font-semibold text-lg md:text-xl mb-2">
+            Advanced Plan
+          </h3>
           <p className="text-3xl md:text-4xl font-bold mb-1">₹ 999</p>
           <p className="text-sm md:text-base mb-4">/Mo + ₹1,999 setup</p>
           <ul className="list-disc list-inside text-sm md:text-base mb-6 space-y-2">
@@ -69,7 +84,10 @@ const Pricing: React.FC = () => {
         </div>
 
         {/* Pro Plan */}
-        <div className="border border-gray-200 rounded-2xl bg-gradient-to-b from-blue-50 to-white p-6 flex flex-col w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full">
+        <div
+          className="border border-gray-200 rounded-2xl bg-gradient-to-b from-blue-50 to-white p-6 flex flex-col w-full max-w-[480px] sm:max-w-[550px] sm:text-lg md:max-w-full 
+        transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+        >
           <h3 className="font-semibold text-lg md:text-xl mb-2">Pro Plan</h3>
           <p className="text-3xl md:text-4xl font-bold mb-1">₹ 4999</p>
           <p className="text-sm md:text-base text-gray-500 mb-4">
@@ -90,10 +108,19 @@ const Pricing: React.FC = () => {
 
       {/* Bottom Buttons */}
       <div className="flex flex-col md:flex-row gap-4 mt-10">
-        <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold hover:shadow-lg">
+        <button
+          className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold 
+    shadow-[8px_8px_16px_#d1b35f,-8px_-8px_16px_#fff5cc] 
+    transition-all duration-300 hover:shadow-[inset_8px_8px_16px_#d1b35f,inset_-8px_-8px_16px_#fff5cc]"
+        >
           Start Free →
         </button>
-        <button className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold hover:shadow-lg">
+
+        <button
+          className="bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-2 rounded-full font-semibold 
+    shadow-[8px_8px_16px_#d1b35f,-8px_-8px_16px_#fff5cc] 
+    transition-all duration-300 hover:shadow-[inset_8px_8px_16px_#d1b35f,inset_-8px_-8px_16px_#fff5cc]"
+        >
           Request Pricing →
         </button>
       </div>
@@ -102,5 +129,3 @@ const Pricing: React.FC = () => {
 };
 
 export default Pricing;
-
-
