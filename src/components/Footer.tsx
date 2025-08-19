@@ -50,54 +50,44 @@ const Footer = () => {
     <>
       {/* Final CTA Section */}
       <section className="py-20 sm:py-28 lg:py-32 gradient-hero relative overflow-hidden">
-        {/* Floating Icons */}
-        <div className="absolute top-10 left-10 footer-float">
-          <ShoppingBag className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-white/20 animate-float" />
-        </div>
-        <div className="absolute bottom-10 right-10 footer-float">
-          <div className="w-4 h-4 sm:w-6 sm:h-6 md:w-8 md:h-8 bg-white/20 rounded-full animate-pulse-soft" />
-        </div>
-        <div className="absolute top-1/2 left-1/4 footer-float">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 md:w-4 md:h-4 bg-white/30 rounded-full" />
-        </div>
-
         {/* Content */}
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1
-            className="
-        hero-title 
-        font-bold 
-        leading-tight 
-        tracking-tight
-        text-2xl sm:text-3xl md:text-[44px] lg:text-[64px] xl:text-[74px]
-      "
-          >
-            {/* Left floating image */}
-            <div className="hidden md:block absolute top-[-65px] left-[-40px] rotate-[110deg] z-30">
-              <img
-                src="/assets/img2.png"
-                className="w-16 sm:w-20 md:w-28 lg:w-32 h-auto"
-                alt="Floating Left"
-              />
-            </div>
+  className="
+    hero-title 
+    relative
+    font-bold 
+    leading-tight 
+    tracking-tight
+    text-2xl sm:text-3xl md:text-[44px] lg:text-[64px] xl:text-[74px]
+  "
+>
+  {/* Left floating image */}
+  <div className="hidden md:block absolute top-[-65px] left-[-40px] rotate-[110deg] z-10">
+    <img
+      src="/assets/img2.png"
+      className="w-16 sm:w-20 md:w-28 lg:w-32 h-auto"
+      alt="Floating Left"
+    />
+  </div>
 
-            <span className="text-foreground">Start </span>
-            <span className="gradient-primary bg-clip-text text-transparent glow-text">
-              selling smarter{" "}
-            </span>
-            <span className="text-foreground">on Shopify Today</span>
+  <span className="text-foreground">Start </span>
+  <span className="gradient-primary bg-clip-text text-transparent glow-text">
+    subscribing smarter{" "}
+  </span>
+  <span className="text-foreground">on Shopify </span>
+  <span className="text-foreground block mt-6">Today</span>
 
-            {/* Right floating image */}
-            <span className="text-foreground flex items-center space-x-4">
-              <div className="hidden md:block absolute bottom-[-60px] right-[-40px] rotate-[320deg] z-30">
-                <img
-                  src="/assets/img2.png"
-                  className="w-16 sm:w-20 md:w-24 lg:w-32 h-auto"
-                  alt="Floating Right"
-                />
-              </div>
-            </span>
-          </h1>
+  {/* Right floating image */}
+  <div className="hidden md:block absolute bottom-[-60px] right-[-40px] rotate-[320deg] z-10">
+    <img
+      src="/assets/img2.png"
+      className="w-16 sm:w-20 md:w-24 lg:w-32 h-auto"
+      alt="Floating Right"
+    />
+  </div>
+</h1>
+
         </div>
       </section>
 

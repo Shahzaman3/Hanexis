@@ -27,7 +27,6 @@ const Benefits = () => {
           },
         }
       );
-      
 
       // Paragraph animation (wipe up reveal)
       gsap.fromTo(
@@ -111,23 +110,23 @@ const Benefits = () => {
         {[
           {
             num: "1",
-            title: "CUSTOM PRICING",
-            desc: "Different prices for retailers, wholesalers, or region.",
+            title: "Smart Dynamic Pricing",
+            desc: "Set automated prices based on materials, diamonds, competitors, or regions—always stay ahead.",
           },
           {
             num: "2",
-            title: "INSTANT QUOTATION",
-            desc: "Auto GST or VAT-compliant quotes in seconds.",
+            title: "Quick & Accurate Quotations",
+            desc: "Generate GST/VAT-compliant quotes instantly with zero manual effort.",
           },
           {
             num: "3",
-            title: "STOCK MANAGEMENT",
-            desc: "Region-wise stock allocation and tracking.",
+            title: "Intelligent Stock Control",
+            desc: "Seamless tracking and region-wise allocation to prevent overstocking or shortages.",
           },
           {
             num: "4",
-            title: "EFFORTLESS ORDERING",
-            desc: "One-click reorders & bulk uploads",
+            title: "Hassle-Free Ordering",
+            desc: "One-click reorders, bulk uploads, and faster checkouts for ultimate convenience.",
           },
         ].map((item, i) => (
           <div

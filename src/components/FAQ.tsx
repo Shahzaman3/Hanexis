@@ -55,31 +55,51 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: 'How do I customize my storefront?',
-      answer: 'You can customize your storefront through our intuitive dashboard. Simply navigate to the design section and choose from our pre-built themes or create your own custom layout with drag-and-drop functionality.'
+      question: 'What is a Price Management System (PMS)?',
+      answer: 'A PMS is a software solution that automates pricing strategies by factoring in costs, competitor prices, market trends, and business rules to ensure accurate and profitable pricing.'
     },
     {
-      question: 'What makes pricing different from a Shopify app?',
-      answer: 'Unlike traditional Shopify apps, our pricing engine uses advanced algorithms and real-time market data to optimize your prices automatically. We provide dynamic pricing, bulk management, and region-specific pricing that adapts to market conditions.'
+      question: 'How does Autoprice Pro help with dynamic pricing?',
+      answer: 'Autoprice Pro automatically adjusts product prices in real-time based on material costs, competitor updates, and business-defined rules, eliminating manual work.'
     },
     {
-      question: 'Can you import existing product data?',
-      answer: 'Yes! Our platform supports seamless data migration from Shopify, CSV files, and other e-commerce platforms. Our team will help you migrate your existing product catalog, pricing rules, and customer data without any downtime.'
+      question: 'Can I set different prices for retailers, wholesalers, and regions?',
+      answer: 'Yes. The system supports tiered pricing, region-specific adjustments, and customized rules for different customer groups.'
     },
     {
-      question: 'How much time does product creation take you?',
-      answer: 'Product creation is incredibly fast with our automated tools. Individual products can be created in under 2 minutes, while bulk imports can process thousands of products in just a few minutes. Our AI helps generate product descriptions and optimize pricing automatically.'
+      question: 'Does it integrate with my existing Shopify store?',
+      answer: 'Absolutely. Autoprice Pro integrates seamlessly with Shopify, syncing prices, stock, and invoices in real time.'
     },
     {
-      question: 'Why should I move from Shopify to your product?',
-      answer: 'Our platform is built specifically for B2B sellers who need advanced pricing controls, bulk management, and automated workflows. While Shopify is great for B2C, we provide specialized tools for wholesale, volume discounts, custom pricing per customer, and advanced inventory management that B2B businesses require.'
+      question: 'Can I track competitor prices?',
+      answer: 'Yes. Autoprice Pro (upcoming feature) allows competitor price monitoring so you can stay competitive without constant manual checks.'
+    },
+    {
+      question: 'What kind of reports can I generate?',
+      answer: 'You can access insights on sales trends, customer behavior, margins, stock allocation, and price-performance analytics.'
+    },
+    {
+      question: 'Is it suitable for small businesses or only large enterprises?',
+      answer: 'Autoprice Pro is designed to scale — whether you’re a small retailer or a large enterprise, it adapts to your pricing needs.'
+    },
+    {
+      question: 'Does it support promotions or discounts?',
+      answer: 'Yes. You can schedule discounts, run promotional campaigns, and even set recurring offers (monthly/quarterly).'
+    },
+    {
+      question: 'How secure is my data?',
+      answer: 'The system follows industry-standard encryption and data security practices to keep your pricing, inventory, and customer data safe.'
+    },
+    {
+      question: 'Do I get customer support if I face issues?',
+      answer: 'Yes. Our support team is proactive, friendly, and available to help you with setup, troubleshooting, and strategy guidance.'
     }
   ];
 
   return (
     <section id="faq" ref={sectionRef} className="py-20 gradient-hero">
       <div className="container mx-auto px-4">
-        <div className="max-w-8xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-8xl mx-auto grid grid-cols-1 gap-8">
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-primary backdrop-blur-sm border border-primary/20 rounded-full px-4 py-2 mb-6">
               <span className="text-sm font-medium text-white">FAQ</span>

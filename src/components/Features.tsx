@@ -83,23 +83,23 @@ const Features = () => {
   const features = [
     {
       img: img5,
-      title: "Seller Dashboard",
-      description: "Client management, stock control, quotation generation.",
+      title: "Dynamic Pricing Dashboard",
+      description: "Automated price adjustments based on market rates, competitor pricing, and material cost fluctuations.",
     },
     {
       img: img6,
-      title: "Buyer Dashboard",
-      description: "Personalized prices, easy ordering, invoice tracking",
+      title: "Cost Control Dashboard",
+      description: "Easily manage making charges, wastage, labor, and additional cost components in real time.",
     },
     {
       img: img7,
-      title: "Analytics",
-      description: "Top-selling customers, client spend, sales trends.",
+      title: "Insights & Analytics",
+      description: "Track pricing trends, profit margins, customer demand, and sales performance with detailed reports.",
     },
     {
       img: img8,
-      title: "Extras",
-      description: "Credit Options, shipping rules, role-based dashboards.",
+      title: "Advanced Tools",
+      description: "monitoring, role-based access, and flexible discount rules.",
     },
   ];
 
