@@ -1,13 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ShoppingBag, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
   const footerRef = useRef<HTMLDivElement>(null);
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "Home", href: "#hero", type: "anchor" },
+    { name: "Features", href: "#features", type: "anchor" },
+    { name: "Pricing", href: "#pricing", type: "anchor" },
+    { name: "FAQ", href: "#faq", type: "anchor" },
+    { name: "Blog", href: "/blog", type: "route" },
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -53,7 +63,7 @@ const Footer = () => {
         {/* Content */}
         <div className="container mx-auto px-4 text-center relative z-10">
           <h1
-  className="
+            className="
     hero-title 
     relative
     font-bold 
@@ -61,33 +71,32 @@ const Footer = () => {
     tracking-tight
     text-2xl sm:text-3xl md:text-[44px] lg:text-[64px] xl:text-[74px]
   "
->
-  {/* Left floating image */}
-  <div className="hidden md:block absolute top-[-65px] left-[-40px] rotate-[110deg] z-10">
-    <img
-      src="/assets/img2.png"
-      className="w-16 sm:w-20 md:w-28 lg:w-32 h-auto"
-      alt="Floating Left"
-    />
-  </div>
+          >
+            {/* Left floating image */}
+            <div className="hidden md:block absolute top-[-65px] left-[-40px] rotate-[110deg] z-10">
+              <img
+                src="/assets/img2.png"
+                className="w-16 sm:w-20 md:w-28 lg:w-32 h-auto"
+                alt="Floating Left"
+              />
+            </div>
 
-  <span className="text-foreground">Start </span>
-  <span className="gradient-primary bg-clip-text text-transparent glow-text">
-    subscribing smarter{" "}
-  </span>
-  <span className="text-foreground">on Shopify </span>
-  <span className="text-foreground block mt-6">Today</span>
+            <span className="text-foreground">Start </span>
+            <span className="gradient-primary bg-clip-text text-transparent glow-text">
+              subscribing smarter{" "}
+            </span>
+            <span className="text-foreground">on Shopify </span>
+            <span className="text-foreground block mt-6">Today</span>
 
-  {/* Right floating image */}
-  <div className="hidden md:block absolute bottom-[-60px] right-[-40px] rotate-[320deg] z-10">
-    <img
-      src="/assets/img2.png"
-      className="w-16 sm:w-20 md:w-24 lg:w-32 h-auto"
-      alt="Floating Right"
-    />
-  </div>
-</h1>
-
+            {/* Right floating image */}
+            <div className="hidden md:block absolute bottom-[-60px] right-[-40px] rotate-[320deg] z-10">
+              <img
+                src="/assets/img2.png"
+                className="w-16 sm:w-20 md:w-24 lg:w-32 h-auto"
+                alt="Floating Right"
+              />
+            </div>
+          </h1>
         </div>
       </section>
 
@@ -107,28 +116,29 @@ const Footer = () => {
             {/* Quick Links */}
             <div>
               <h3 className="font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-700 text-sm uppercase ">
-                <li>
-                  <a href="#" className="hover:underline">
-                    home
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline">
-                    faq
-                  </a>
-                </li>
-              </ul>
+              <div className="flex py-2 flex-col">
+                {navItems.map((item) =>
+                  item.type === "route" ? (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      className="hover:text-yellow-500 transition-colors font-medium text-black"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="hover:text-yellow-500 transition-colors font-medium text-black"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  )
+                )}
+              </div>
             </div>
 
             {/* Contact */}
