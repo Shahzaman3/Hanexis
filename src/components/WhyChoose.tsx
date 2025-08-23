@@ -117,141 +117,135 @@ const WhyChoose: React.FC<Props> = () => {
   }, []);
 
   return (
-    <section className="w-full px-6 py-20 bg-gradient-to-br from-white to-blue-50 text-center">
+    <section className="w-full px-4 md:px-6 py-12 md:py-20 bg-gradient-to-br from-white to-blue-50 text-center">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-          Why Choose <span className="text-blue-600">Hanexis ?</span>
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
-          We built Hanexis to make B2B selling as smooth as B2C — but with the
-          tools wholesalers need.
-        </p>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold mb-3 md:mb-4">
+        Why Choose <span className="text-blue-600">Hanexis ?</span>
+      </h2>
+      <p className="text-gray-600 max-w-lg md:max-w-2xl mx-auto mb-8 md:mb-12 text-base md:text-lg">
+        We built Hanexis to make B2B selling as smooth as B2C — but with the
+        tools wholesalers need.
+      </p>
 
-        {/* Diagram container */}
+      {/* Diagram container */}
+      <div
+        ref={containerRef}
+        className="relative w-full mx-auto min-h-[600px] md:min-h-[420px] flex items-center justify-center"
+      >
+        {/* Center badge */}
         <div
-          ref={containerRef}
-          className="relative w-full mx-auto min-h-[520px] md:min-h-[420px]"
+        ref={centerRef}
+        className="absolute left-1/2 -translate-x-1/2 top-6 z-20"
         >
-          {/* Center badge */}
-          <div
-            ref={centerRef}
-            className="absolute left-1/2 -translate-x-1/2 top-6 z-20"
-          >
-            <div className="relative">
-              {/* <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-semibold shadow-2xl ring-4 ring-white/60 border-4 border-blue-200">
-                <span className="text-lg md:text-4xl">Hanexis</span>
-              </div> */}
-              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden">
-                <img
-                  src="/assets/bg.svg"
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
-                <span className="absolute inset-0 flex items-center justify-center text-lg md:text-2xl font-semibold text-white">
-                  Hanexis
-                </span>
-              </div>
-
-              {/* <div className="absolute -inset-2 rounded-full border-2 border-blue-100"></div> */}
-            </div>
-          </div>
-
-          {/* SVG - paths get set dynamically from JS so path d's are empty initially */}
-          <svg
-            ref={svgRef}
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              ref={(el) => (pathRefs.current[0] = el)}
-              stroke="#bfdbfe"
-              strokeWidth={3}
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              ref={(el) => (pathRefs.current[1] = el)}
-              stroke="#bfdbfe"
-              strokeWidth={3}
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              ref={(el) => (pathRefs.current[2] = el)}
-              stroke="#bfdbfe"
-              strokeWidth={3}
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-
-          {/* Feature cards - positioned to match screenshot (left, middle, right) */}
-          {/* Feature cards - evenly spaced row */}
-          <div className="absolute bottom-8 left-0 w-full flex justify-between items-end px-6 md:px-20">
-            <div ref={leftCardRef} className="w-72 p-6 relative">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                <div className="relative w-12 h-12 rounded-full bg-white border border-blue-200 shadow-md overflow-hidden flex items-center justify-center">
-                  <img
-                    src="/assets/bg.svg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                  <img
-                    src="/assets/time.svg"
-                    alt=""
-                    className="absolute inset-0 m-auto w-6 h-6"
-                  />
-                </div>
-              </div>
-              <p className="mt-4 text-gray-700 font-medium">
-                Saves time & reduces errors.
-              </p>
-            </div>
-
-            <div ref={midCardRef} className="w-72 p-6 relative">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                <div className="relative w-12 h-12 rounded-full bg-white border border-blue-200 shadow-md overflow-hidden flex items-center justify-center">
-                  <img
-                    src="/assets/bg.svg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                  <img
-                    src="/assets/clock.svg"
-                    alt=""
-                    className="absolute inset-0 m-auto w-6 h-6"
-                  />
-                </div>
-              </div>
-              <p className="mt-4 text-gray-700 font-medium">
-                Lets buyers self-serve <span className="font-bold">24/7</span>
-              </p>
-            </div>
-
-            <div ref={rightCardRef} className="w-72 p-6 relative">
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                <div className="relative w-12 h-12 rounded-full bg-white border border-blue-200 shadow-md overflow-hidden flex items-center justify-center">
-                  <img
-                    src="/assets/bg.svg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                  <img
-                    src="/assets/growth.svg"
-                    alt=""
-                    className="absolute inset-0 m-auto w-6 h-6"
-                  />
-                </div>
-              </div>
-              <p className="mt-4 text-gray-700 font-medium">
-                Scales with your business growth.
-              </p>
-            </div>
+        <div className="relative">
+          <div className="relative w-28 h-28 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden">
+          <img
+            src="/assets/bg.svg"
+            alt=""
+            className="h-full w-full object-cover"
+          />
+          <span className="absolute inset-0 flex items-center justify-center text-base md:text-lg lg:text-2xl font-semibold text-white">
+            Hanexis
+          </span>
           </div>
         </div>
+        </div>
+
+        {/* SVG - paths get set dynamically from JS so path d's are empty initially */}
+        <svg
+        ref={svgRef}
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <path
+          ref={(el) => (pathRefs.current[0] = el)}
+          stroke="#bfdbfe"
+          strokeWidth={3}
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          ref={(el) => (pathRefs.current[1] = el)}
+          stroke="#bfdbfe"
+          strokeWidth={3}
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          ref={(el) => (pathRefs.current[2] = el)}
+          stroke="#bfdbfe"
+          strokeWidth={3}
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        </svg>
+
+        {/* Feature cards - responsive row */}
+        <div className="absolute bottom-4 md:bottom-8 left-0 w-full flex flex-col md:flex-row justify-center md:justify-between items-end gap-6 md:gap-0 px-2 md:px-8 lg:px-20">
+        <div ref={leftCardRef} className="w-full md:w-72 p-4 md:p-6 relative flex flex-col items-center">
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-blue-200 shadow-md overflow-hidden flex items-center justify-center">
+            <img
+            src="/assets/bg.svg"
+            alt=""
+            className="h-full w-full object-cover"
+            />
+            <img
+            src="/assets/time.svg"
+            alt=""
+            className="absolute inset-0 m-auto w-5 h-5 md:w-6 md:h-6"
+            />
+          </div>
+          </div>
+          <p className="mt-8 text-gray-700 font-medium text-sm md:text-base text-center">
+          Saves time & reduces errors.
+          </p>
+        </div>
+
+        <div ref={midCardRef} className="w-full md:w-72 p-4 md:p-6 relative flex flex-col items-center">
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-blue-200 shadow-md overflow-hidden flex items-center justify-center">
+            <img
+            src="/assets/bg.svg"
+            alt=""
+            className="h-full w-full object-cover"
+            />
+            <img
+            src="/assets/clock.svg"
+            alt=""
+            className="absolute inset-0 m-auto w-5 h-5 md:w-6 md:h-6"
+            />
+          </div>
+          </div>
+          <p className="mt-8 text-gray-700 font-medium text-sm md:text-base text-center">
+          Lets buyers self-serve <span className="font-bold">24/7</span>
+          </p>
+        </div>
+
+        <div ref={rightCardRef} className="w-full md:w-72 p-4 md:p-6 relative flex flex-col items-center">
+          <div className="absolute -top-6 left-1/2 -translate-x-1/2">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-blue-200 shadow-md overflow-hidden flex items-center justify-center">
+            <img
+            src="/assets/bg.svg"
+            alt=""
+            className="h-full w-full object-cover"
+            />
+            <img
+            src="/assets/growth.svg"
+            alt=""
+            className="absolute inset-0 m-auto w-5 h-5 md:w-6 md:h-6"
+            />
+          </div>
+          </div>
+          <p className="mt-8 text-gray-700 font-medium text-sm md:text-base text-center">
+          Scales with your business growth.
+          </p>
+        </div>
+        </div>
+      </div>
       </div>
     </section>
   );
