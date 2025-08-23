@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "#hero" },
-    { name: "Features", href: "#features" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Home", href: "#hero", type: "anchor" },
+    { name: "Features", href: "#features", type: "anchor" },
+    { name: "Pricing", href: "#pricing", type: "anchor" },
+    { name: "FAQ", href: "#faq", type: "anchor" },
+    { name: "Blog", href: "/blog", type: "route" },
   ];
 
   return (
@@ -17,22 +19,33 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src="/assets/logo.svg" alt="" />
+            <img src="/assets/logo.svg" alt="Logo" />
           </div>
 
           {/* Desktop Menu with glassy rounded div */}
           <div className="hidden md:flex items-center space-x-8">
             <div className="flex space-x-6 px-6 py-2 bg-white/20 backdrop-blur-lg rounded-3xl border border-white/30 shadow-lg">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="hover:text-yellow-500 transition-colors font-medium text-black"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.type === "route" ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="hover:text-yellow-500 transition-colors font-medium text-black"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="hover:text-yellow-500 transition-colors font-medium text-black"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )
+              )}
             </div>
           </div>
 
@@ -70,16 +83,27 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden border-t border-black/10 shadow-lg bg-white/90 text-black">
           <div className="flex flex-col px-6 py-4 space-y-4">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="hover:text-yellow-500 font-semibold text-black"
-                onClick={() => setMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.type === "route" ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="hover:text-yellow-500 font-semibold text-black"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="hover:text-yellow-500 font-semibold text-black"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              )
+            )}
 
             <Button
               className="bg-[#FDDE51] hover:shadow-card-hover transition-elastic px-6 py-3 rounded-2xl font-bold glow-soft text-black"
@@ -95,4 +119,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

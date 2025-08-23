@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import BlogHero from "./BlogHero";
-import BlogGrid from "./BlogGrid";
+import BlogHero from "@/components/BlogHero";
+import BlogGrid from "@/components/BlogGrid";
 
 const Blog = () => {
   return (

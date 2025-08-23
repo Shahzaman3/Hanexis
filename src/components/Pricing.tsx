@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const Pricing: React.FC = () => {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
 
-  // Plans ka data
   const plans = {
     monthly: [
       {
@@ -92,7 +91,10 @@ const Pricing: React.FC = () => {
   };
 
   return (
-    <section className="w-full py-12 px-4 bg-white flex flex-col items-center">
+    <section
+      id="pricing"
+      className="w-full py-12 px-4 bg-white flex flex-col items-center"
+    >
       {/* Heading */}
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">
         Flexible Plans for Every Business Size
@@ -103,36 +105,35 @@ const Pricing: React.FC = () => {
       </p>
 
       {/* Toggle */}
-<div className="relative flex items-center w-64 bg-gradient-to-b from-white to-blue-200 border-2 border-blue-400 rounded-full p-1 mb-10">
-  {/* Sliding Background */}
-  <div
-    className={`absolute top-1 bottom-1 rounded-full bg-blue-600 transition-transform duration-300 ease-in-out 
+      <div className="relative flex items-center w-64 bg-gradient-to-b from-white to-blue-200 border-2 border-blue-400 rounded-full p-1 mb-10">
+        {/* Sliding Background */}
+        <div
+          className={`absolute top-1 bottom-1 rounded-full bg-blue-600 transition-transform duration-300 ease-in-out 
       w-[48%] 
       ${billing === "yearly" ? "translate-x-full" : "translate-x-0"}`}
-    style={{ marginLeft: "2px", marginRight: "2px" }}
-  ></div>
+          style={{ marginLeft: "2px", marginRight: "2px" }}
+        ></div>
 
-  {/* Buttons */}
-  <div className="relative flex w-full z-10">
-    <button
-      onClick={() => setBilling("monthly")}
-      className={`w-1/2 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 ${
-        billing === "monthly" ? "text-white" : "text-gray-700"
-      }`}
-    >
-      Monthly
-    </button>
-    <button
-      onClick={() => setBilling("yearly")}
-      className={`w-1/2 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 ${
-        billing === "yearly" ? "text-white" : "text-gray-700"
-      }`}
-    >
-      Yearly
-    </button>
-  </div>
-</div>
-
+        {/* Buttons */}
+        <div className="relative flex w-full z-10">
+          <button
+            onClick={() => setBilling("monthly")}
+            className={`w-1/2 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 ${
+              billing === "monthly" ? "text-white" : "text-gray-700"
+            }`}
+          >
+            Monthly
+          </button>
+          <button
+            onClick={() => setBilling("yearly")}
+            className={`w-1/2 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 ${
+              billing === "yearly" ? "text-white" : "text-gray-700"
+            }`}
+          >
+            Yearly
+          </button>
+        </div>
+      </div>
 
       {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full justify-items-center md:justify-items-stretch">
@@ -181,4 +182,3 @@ const Pricing: React.FC = () => {
 };
 
 export default Pricing;
-

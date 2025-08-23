@@ -106,6 +106,7 @@ const Features = () => {
   return (
     <section
       ref={sectionRef}
+      id="features"
       className="py-10 gradient-hero relative overflow-hidden"
     >
       <div className="container mx-auto px-6 relative z-10">
